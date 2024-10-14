@@ -86,7 +86,7 @@ boards.addEventListener("click", (e) => {
 }}
 if(!ret || e.target.id != "board") {
 e.target.classList.add("selected");
-p1Choice = e.target.id;
+p1Choice = e.target.alt;
 instruct.textContent = p1Choice;
 }
 });
