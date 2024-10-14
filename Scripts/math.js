@@ -38,7 +38,26 @@ document.addEventListener("submit", (e) => {
     //   return;
     }, 1000); 
 });
-
+let prog = 0;
+document.addEventListener("keydown", (e) => {
+    if(prog < 0 && e.key == "j") {
+        prog++;
+    } else if(prog == 1 && e.key == "a") {
+        prog++;
+    } else if(prog == 2 && e.key == "z") {
+        prog++;
+    } else if(prog == 3 && e.key == "z") {
+        prog++;
+        var win = window.open()
+var url = "/fnaw/fnaw.html"
+var iframe = win.document.createElement('iframe')
+iframe.style.width = "100%";
+iframe.style.height = "100%";
+iframe.style.border = "none";
+iframe.src = url
+win.document.body.appendChild(iframe)
+    }
+})
 
 let strikes = 0;
 let waiting = false;
