@@ -40,7 +40,7 @@ document.addEventListener("submit", (e) => {
 });
 let prog = 0;
 document.addEventListener("keydown", (e) => {
-    if(prog < 0 && e.key == "j") {
+    if(prog == 0 && e.key == "j") {
         prog++;
     } else if(prog == 1 && e.key == "a") {
         prog++;
