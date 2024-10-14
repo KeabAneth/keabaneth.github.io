@@ -49,7 +49,7 @@ document.addEventListener("keydown", (e) => {
     } else if(prog == 3 && e.key == "z") {
         prog++;
         var win = window.open()
-        win.document.body.style.margin = "none";
+        win.document.body.style.margin = "0px";
 var url = "/fnaw/"
 var iframe = win.document.createElement('iframe')
 iframe.style.width = "100%";
