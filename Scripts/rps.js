@@ -84,7 +84,7 @@ boards.addEventListener("click", (e) => {
             }
 
 }}
-if(!ret || e.target.id != "board") {
+if(!ret || e.target.id != "board" || e.target.id != "main") {
 e.target.classList.add("selected");
 p1Choice = e.target.alt;
 instruct.textContent = p1Choice;
@@ -147,7 +147,8 @@ function botChoose() {
     }
     let win;
     if(botChose === p1Choice) {
-        instruct.textContent = `The bot chose ${botChose}, it's a tie!`
+        instruct.textContent = `The bot chose ${botChose}, it's a tie!`;
+        return;
     } else if(botChose == "paper") {
         if(p1Choice == "rock") {
             win = false;
