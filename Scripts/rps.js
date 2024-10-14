@@ -135,11 +135,41 @@ function startGame() {
 function botChoose() {
     const randNum = Math.random();
     if (randNum > 0.33 && randNum < 0.66) {
-        instruct.textContent = "bot chose rock";
+        let botChose = "rock";
+        // instruct.textContent = "bot chose rock, you " + result;
     } else if (randNum > 0.66) {
-        instruct.textContent = "bot chose paper";
+        // instruct.textContent = "bot chose paper you " + result;
+        let botChose = "paper";
     } else if (randNum < 0.33) {
-        instruct.textContent = "bot chose scissors";
+        // instruct.textContent = "bot chose scissors you " + result;
+        let botChose = "scissors";
+    }
+    if(botChoose === p1Choice) {
+        instruct.textContent = `The bot chose ${botChoose}, it's a tie!`
+    } else if(botChoose == "paper") {
+        if(p1Choice == "rock") {
+            let win = false;
+        } else if(p1Choice == "scissors") {
+            let win = true;
+        }
+    } else if(botChoose == "rock") {
+        if(p1Choice == "paper") {
+            let win = true;
+        } else if(p1Choice == "scissors") {
+            let win = false;
+        }
+
+    } else if(botChoose == "scissors") {
+        if(p1Choice == "rock") {
+            let win = true;
+        } else if(p1Choice == "paper") {
+            let win = false;
+        }
+    }
+    if(win) {
+        instruct.textContent = `The bot chose ${botChoose} you won :D `;
+    } else {
+        instruct.textContent = `The bot chose ${botChoose} you lost. :( `;
     }
 }
 
