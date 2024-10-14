@@ -134,33 +134,34 @@ function startGame() {
 
 function botChoose() {
     const randNum = Math.random();
+    let botChose
     if (randNum > 0.33 && randNum < 0.66) {
-        let botChoose = "rock";
+        botChose = "rock";
         // instruct.textContent = "bot chose rock, you " + result;
     } else if (randNum > 0.66) {
         // instruct.textContent = "bot chose paper you " + result;
-        let botChoose = "paper";
+        botChose = "paper";
     } else if (randNum < 0.33) {
         // instruct.textContent = "bot chose scissors you " + result;
-        let botChoose = "scissors";
+        botChose = "scissors";
     }
     let win;
-    if(botChoose === p1Choice) {
-        instruct.textContent = `The bot chose ${botChoose}, it's a tie!`
-    } else if(botChoose == "paper") {
+    if(botChose === p1Choice) {
+        instruct.textContent = `The bot chose ${botChose}, it's a tie!`
+    } else if(botChose == "paper") {
         if(p1Choice == "rock") {
             win = false;
         } else if(p1Choice == "scissors") {
             win = true;
         }
-    } else if(botChoose == "rock") {
+    } else if(botChose == "rock") {
         if(p1Choice == "paper") {
             win = true;
         } else if(p1Choice == "scissors") {
             win = false;
         }
 
-    } else if(botChoose == "scissors") {
+    } else if(botChose == "scissors") {
         if(p1Choice == "rock") {
             win = true;
         } else if(p1Choice == "paper") {
@@ -168,9 +169,9 @@ function botChoose() {
         }
     }
     if(win) {
-        instruct.textContent = `The bot chose ${botChoose} you won :D `;
+        instruct.textContent = `The bot chose ${botChose} you won :D `;
     } else {
-        instruct.textContent = `The bot chose ${botChoose} you lost. :( `;
+        instruct.textContent = `The bot chose ${botChose} you lost. :( `;
     }
 }
 
