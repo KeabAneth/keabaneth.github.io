@@ -144,26 +144,27 @@ function botChoose() {
         // instruct.textContent = "bot chose scissors you " + result;
         let botChoose = "scissors";
     }
+    let win;
     if(botChoose === p1Choice) {
         instruct.textContent = `The bot chose ${botChoose}, it's a tie!`
     } else if(botChoose == "paper") {
         if(p1Choice == "rock") {
-            let win = false;
+            win = false;
         } else if(p1Choice == "scissors") {
-            let win = true;
+            win = true;
         }
     } else if(botChoose == "rock") {
         if(p1Choice == "paper") {
-            let win = true;
+            win = true;
         } else if(p1Choice == "scissors") {
-            let win = false;
+            win = false;
         }
 
     } else if(botChoose == "scissors") {
         if(p1Choice == "rock") {
-            let win = true;
+            win = true;
         } else if(p1Choice == "paper") {
-            let win = false;
+            win = false;
         }
     }
     if(win) {
