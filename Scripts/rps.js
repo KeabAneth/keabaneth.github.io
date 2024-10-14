@@ -135,14 +135,14 @@ function startGame() {
 function botChoose() {
     const randNum = Math.random();
     if (randNum > 0.33 && randNum < 0.66) {
-        let botChose = "rock";
+        let botChoose = "rock";
         // instruct.textContent = "bot chose rock, you " + result;
     } else if (randNum > 0.66) {
         // instruct.textContent = "bot chose paper you " + result;
-        let botChose = "paper";
+        let botChoose = "paper";
     } else if (randNum < 0.33) {
         // instruct.textContent = "bot chose scissors you " + result;
-        let botChose = "scissors";
+        let botChoose = "scissors";
     }
     if(botChoose === p1Choice) {
         instruct.textContent = `The bot chose ${botChoose}, it's a tie!`
