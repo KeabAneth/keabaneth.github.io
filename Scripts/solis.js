@@ -14,6 +14,10 @@ function showContent(tab) {
   }
 }
 
+document.getElementById("keab").addEventListener("click", () => {
+  window.location.href = "https://keabaneth.github.io"
+})
+
 
 search.addEventListener("submit", e => {
   e.preventDefault()
