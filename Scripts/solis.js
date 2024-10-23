@@ -75,5 +75,6 @@ script.onload = function () { eruda.init()}
     document.getElementById("dirTon").textContent = final2.properties.periods[1].windDirection
     document.getElementById("shortTon").textContent = final2.properties.periods[1].shortForecast;
     document.getElementById("precTon").textContent = final2.properties.periods[1].probabilityOfPrecipitation.value + "%"
-    
+    document.getElementById("titleLat").textContent = final2.properties.periods[1].name;
+    document.getElementById("titleNow").textContent = final2.properties.periods[0].name;
   }
