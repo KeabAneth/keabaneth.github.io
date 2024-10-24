@@ -60,7 +60,7 @@ script.onload = function () { eruda.init()}
              final2 = await response2.json();
              updForecast(final2);
           } catch (error2) {
-            document.getElementById("wind").textContent = error2 + url2;
+            // document.getElementById("wind").textContent = error2 + url2;
           }
   }
   function updForecast(fore) {
