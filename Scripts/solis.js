@@ -48,7 +48,7 @@ script.onload = function () { eruda.init()}
              let final = await response.json()
              forecast(final);
           } catch (error) {
-            document.getElementById("wind").textContent = "1" + error;
+            // document.getElementById("wind").textContent = "1" + error;
           }
  }
  let response2;
