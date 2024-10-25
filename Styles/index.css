@@ -7,11 +7,14 @@
     margin: 20px 5px 10px 5px;
     padding: 20px;
 }
+:root {
+  --proj: 10vw;
+}
 .projects {
   background-color: transparent;
   border: rgb(6, 10, 48) solid 2px;
-  width: 10%;
-  height: auto;
+  width: calc(10vw+1px);
+  height: calc(10vw+1px);
   margin: 20px;
   /* box-shadow: black 10px 5px 5px; */
   border-radius: 20px;
