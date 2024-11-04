@@ -79,3 +79,51 @@ h1 {
     width: 50% !important;
     margin: 0px;
 }
+#weekCont {
+    width: 80%;
+    background-color: #4682B4;
+    height: 115%;
+    border-radius: 20px;
+    padding: 1%;
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-top: 1%;
+    margin-bottom: 10%;
+}
+.week {
+    display: flex;
+    flex-flow: row;
+}
+.day {
+    background-color: rgb(16, 71, 120);
+    border: solid black 1px;
+    width: 23%;
+    padding: 3%;
+    border-radius: 25px;
+    height: 90vh !important;
+}
+.weekday,.weeknight {
+    height: 40vh;
+    width: 48%;
+    padding: 1px;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.weekday{
+    background-color: beige;
+    color: black;
+}
+.weeknight {
+    background-color: black;
+}
+.dayPart {
+    margin: 1%;
+    background-color: rgb(8, 8, 80);
+    color: white;
+    border-radius: 20px;
+    padding: 10px !important;
+}
