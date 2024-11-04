@@ -12,7 +12,7 @@
 </head>
 <body>
     <header><div id="tabs">
-        <img style="border-radius: 10px; margin: 0.4% 0% 0% 1%; background-color: rgb(60, 60, 206); top: 0; left: 0; position: absolute; text-align: left; height: 60%; width: auto;" src="/images/solis-simple.png">
+        <img style="border-radius: 10px; margin: 0.4% 0% 0% 1%; background-color: rgb(60, 60, 206); top: 0; left: 0; position: absolute; text-align: left; height: 60%; width: auto;" src="AAA.png">
         <div class="tab" onclick="showContent('weather')">Weather</div>
         <div class="tab" onclick="showContent('history')">History</div>
         <div class="tab" onclick="showContent('planet')">Planets</div>
@@ -25,30 +25,92 @@
         </form>
     <div id="wethCont">
         <div class="weth bigdiv" id="now">
-            <h1 class="labels">Today</h1>
+            <h1 id="titleNow" class="labels">Today</h1>
             <div class="weth now" id="short">Getting Forecast...</div>
         <div class="weth now" id="wind">
             <div id="dir">Getting Direction...</div>
             <div id="speed">Getting Speed...</div>
         </div>
         <div class="weth now">
-            <img style="height: 5vh; color: blue;" src="./water-drop.svg">
+            <img style="height: 5vh; color: blue;" src="water-drop-black-shape-svgrepo-com.svg">
             <div id="prec">Getting precipitation...</div>
         </div>
         <div class="weth now" style="font-size: 200%;"><div id="temp">Getting Temperature...</div><div class="unit">F</div></div>
     </div>
         <div class="weth bigdiv" id="tonight">
-            <h1 class="labels">Tonight</h1>
+            <h1 id="titleLat" class="labels">Tonight</h1>
             <div class="weth now" id="shortTon">Getting Forecast...</div>
             <div class="weth now" id="windTon">
                 <div id="dirTon">Getting wind direction...</div>
                 <div id="speedTon">getting wind direction...</div>
             </div>
             <div class="weth now">
-                <img style="height: 5vh; color: blue;" src="./water-drop.svg">
+                <img style="height: 5vh; color: blue;" src="water-drop-black-shape-svgrepo-com.svg">
                 <div id="precTon">Getting precipitation...</div>
             </div>
             <div class="weth now" style="font-size: 200%;"><div id="tempTon">Getting Temperature...</div><div class="unit">F</div></div>
+        </div>
+    </div>
+    <div id="weekCont">
+        <h2 class="labels">This Week</h2>
+        <div id="week" class="week">
+            <div class="day">
+                <h1 class="labels"></h1>
+                <div class="weekday">
+                    <div class="dayForecast dayPart"></div>
+                    <div class="dayTemp dayPart"></div>
+                    <div class="dayPrec dayPart"></div>
+                    <div class="dayWind dayPart"></div>
+                </div>
+                <div class="weeknight">
+                <div class="nighForecast dayPart"></div>
+                <div class="nighTemp dayPart"></div>
+                <div class="nighPrec dayPart"></div>
+                <div class="nighWind dayPart"></div>
+            </div></div>
+            <div class="day">
+                <h1 class="labels"></h1>
+                <div class="weekday">
+                    <div class="dayForecast dayPart"></div>
+                    <div class="dayTemp dayPart"></div>
+                    <div class="dayPrec dayPart"></div>
+                    <div class="dayWind dayPart"></div>
+                </div>
+            <div class="weeknight">
+            <div class="nighForecast dayPart"></div>
+            <div class="nighTemp dayPart"></div>
+            <div class="nighPrec dayPart"></div>
+            <div class="nighWind dayPart"></div>
+            </div></div>
+            <div class="day">
+                <h1 class="labels"></h1>
+                <div class="weekday">
+                    <div class="dayForecast dayPart"></div>
+                    <div class="dayTemp dayPart"></div>
+                    <div class="dayPrec dayPart"></div>
+                    <div class="dayWind dayPart"></div>
+                </div>
+                <div class="weeknight">
+                <div class="nighForecast dayPart"></div>
+                <div class="nighTemp dayPart"></div>
+                <div class="nighPrec dayPart"></div>
+                <div class="nighWind dayPart"></div>
+            </div></div>
+            <div class="day">
+                <h1 class="labels"></h1>
+                <div class="weekday">
+                    <div class="dayForecast dayPart"></div>
+                    <div class="dayTemp dayPart"></div>
+                    <div class="dayPrec dayPart"></div>
+                    <div class="dayWind dayPart"></div>
+                </div>
+                <div class="weeknight">
+                <div class="nighForecast dayPart"></div>
+                    <div class="nighTemp dayPart"></div>
+                    <div class="nighPrec dayPart"></div>
+                    <div class="nighWind dayPart"></div>
+                </div>
+            </div>
         </div>
     </div>
     
