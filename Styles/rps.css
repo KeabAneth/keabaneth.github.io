@@ -37,6 +37,7 @@ h3 {
     padding: 20px;
     border-radius: 20px;
     margin-top: 3vh !important;
+    width: 70vw;
 }
 .startBtn {
     cursor: pointer;
