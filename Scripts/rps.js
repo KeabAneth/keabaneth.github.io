@@ -19,6 +19,9 @@ window.addEventListener("resize", () => {
 let mainInfo = main.getBoundingClientRect();
 
 function formatStartBg() {
+    if(main.style.opacity = 0) {
+        mainInfo = main.getBoundingClientRect();
+    }
     mainInfo = boards.getBoundingClientRect();
     // if (main) {
         // if (!p2Board) {
@@ -33,7 +36,6 @@ function formatStartBg() {
         // startGameOverlay.style.height = mainInfo.height + main2Info.height + "px";
     // }
     }
-}
 
 function checkTitle() {
     if (visualViewport.width < 633) {
