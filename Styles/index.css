@@ -36,9 +36,6 @@
   }
   100% {
       transform: translateY(0px);
-      .projDesc {
-        display: block;
-      }
   }
   
 }
