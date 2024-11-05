@@ -71,7 +71,9 @@ boards.addEventListener("click", (e) => {
         instruct.textContent = "Player 2 turn, player 1 look away";
     }
     if(e.target.id == "button2" && p1Choice && p2Choice && selectedGamemode == "VS PLAYER") {
-        finishGame(p2Choice)
+        finishGame(p2Choice);
+        main.style.opacity = 1;
+        formatStartBg();
     }
 
 })
