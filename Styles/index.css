@@ -6,6 +6,7 @@
     width: 70vw;
     margin: 20px 5px 10px 5px;
     padding: 20px;
+    flex-wrap: wrap;
 }
 :root {
   --proj: 10vw;
