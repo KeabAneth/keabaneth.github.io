@@ -122,6 +122,10 @@ h1 {
         height: fit-content;
         justify-content: center;
     }
+    .weeknight {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
 }
 .weekday,.weeknight {
     height: 40vh;
