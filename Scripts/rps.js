@@ -72,7 +72,7 @@ boards.addEventListener("click", (e) => {
     }
     if(e.target.id == "button2" && p1Choice && p2Choice && selectedGamemode == "VS PLAYER") {
         finishGame(p2Choice);
-        main.style.opacity = 1;
+        main.style.opacity = "1";
         formatStartBg();
     }
 
