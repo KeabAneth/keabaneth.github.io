@@ -51,7 +51,7 @@ gamemode.addEventListener("click", e => {
 });
 
 boards.addEventListener("click", (e) => {
-    if(e.target.id = "select" && p1Choice) {
+    if(e.target.id == "select" && p1Choice) {
         botChoose();
     }
 })
