@@ -172,7 +172,7 @@ function botChoose() {
         // instruct.textContent = "bot chose scissors you " + result;
         botChose = "scissors";
     }
-    finishGame(botChoose);
+    finishGame(botChose);
 }
 
 function finishGame(choice) {
