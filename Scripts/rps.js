@@ -61,6 +61,9 @@ boards.addEventListener("click", (e) => {
         main.style.opacity = "0";
         instruct.textContent = "Player 2 turn, player 1 look away";
     }
+    if(e.target.id == "button2" && p1Choice && p2Choice && selectedGamemode == "VS PLAYER") {
+        
+    }
 
 })
 
@@ -94,8 +97,13 @@ boards.addEventListener("click", (e) => {
 }}
 if(!ret || e.target.id != "board" || e.target.id != "main") {
 e.target.classList.add("selected");
-p1Choice = e.target.alt;
-instruct.textContent = p1Choice;
+if(document.getElementById("main").style.opacity == "" || document.getElementById("main").style.opacity == "1") {    
+    p1Choice = e.target.alt;
+    instruct.textContent = p1Choice;
+} else {
+    p2Choice = e.target.alt;
+    instruct.textContent = p2Choice;
+}
 }
 });
 
@@ -156,35 +164,54 @@ function botChoose() {
         // instruct.textContent = "bot chose scissors you " + result;
         botChose = "scissors";
     }
+}
+
+function finishGame(choice) {
     let win;
-    if(botChose === p1Choice) {
-        instruct.textContent = `The bot chose ${botChose}, it's a tie!`;
-        return;
-    } else if(botChose == "paper") {
+    if(choice === p1Choice) {
+        if(selectedGamemode == "VS BOT") {
+            instruct.textContent = `The bot chose ${choice}, it's a tie!`;
+            return;
+        } else {
+            instruct.textContent = `You both chose ${choice}, it's a tie!`;
+            return;
+        }
+        
+    } else if(choice == "paper") {
         if(p1Choice == "rock") {
             win = false;
         } else if(p1Choice == "scissors") {
             win = true;
         }
-    } else if(botChose == "rock") {
+    } else if(choice == "rock") {
         if(p1Choice == "paper") {
             win = true;
         } else if(p1Choice == "scissors") {
             win = false;
         }
 
-    } else if(botChose == "scissors") {
+    } else if(choice == "scissors") {
         if(p1Choice == "rock") {
             win = true;
         } else if(p1Choice == "paper") {
             win = false;
         }
     }
-    if(win) {
-        instruct.textContent = `The bot chose ${botChose} you won :D `;
+    if(selectedGamemode == "VS BOT") {
+        if(win) {
+            instruct.textContent = `The bot chose ${choice} you won :D `;
+        } else {
+            instruct.textContent = `The bot chose ${choice} you lost. :( `;
+        }
     } else {
-        instruct.textContent = `The bot chose ${botChose} you lost. :( `;
+        if(win) {
+            instruct.textContent = `Player 1 won! :D`;
+        } else {
+            instruct.textContent = `Player 2 won! :D`;
+        }
     }
+
+    
 }
 
 const startGameOverlay = document.createElement("div");
