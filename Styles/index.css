@@ -36,19 +36,18 @@
   }
   100% {
       transform: translateY(0px);
+      .projDesc {
+        display: block;
+      }
   }
   
 }
 @keyframes shake{
   0% {
     transform: translateY(0px);
-    border-bottom-right-radius: 20px !important;
-    border-bottom-left-radius: 20px !important;
   }
   100% {
     transform: translateY(-10px);
-    border-bottom-right-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
   }
 }
 .projects img {
@@ -60,7 +59,7 @@
 .projDesc {
   text-align: center;
   width: 100%;
-  display: block;
+  display: none;
   background-color: white;
   color: black;
   border-radius: 20px;
