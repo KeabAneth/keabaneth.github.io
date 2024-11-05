@@ -101,6 +101,27 @@ h1 {
     padding: 3%;
     border-radius: 25px;
     height: 90vh !important;
+    display: flex;
+    flex-flow: column;
+}
+@media screen and (max-width: 1000px) {
+    .week {
+        flex-flow: column;
+    }
+    .day {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .day h1 {
+        font-size: x-large;
+        width: 100%;
+        text-align: center;
+    }
+    #weekCont {
+        flex-wrap: wrap;
+        height: fit-content;
+        justify-content: center;
+    }
 }
 .weekday,.weeknight {
     height: 40vh;
