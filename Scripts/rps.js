@@ -19,10 +19,10 @@ window.addEventListener("resize", () => {
 let mainInfo = main.getBoundingClientRect();
 
 function formatStartBg() {
-    if(main.style.opacity == 0) {
+    if(main.style.opacity === "0") {
         mainInfo = main.getBoundingClientRect();
         startGameOverlay.style.display = "block";
-    } else if(document.getElementById("main2").style.opacity == 0) {
+    } else if(document.getElementById("main2").style.opacity === "0") {
         mainInfo = main.getBoundingClientRect();
         startGameOverlay.style.display = "block";
     } else {
