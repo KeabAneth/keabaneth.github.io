@@ -20,7 +20,7 @@ let mainInfo = main.getBoundingClientRect();
 
 function formatStartBg() {
     mainInfo = boards.getBoundingClientRect();
-    if (main) {
+    // if (main) {
         // if (!p2Board) {
         startGameOverlay.style.width = mainInfo.width + "px";
         startGameOverlay.style.height = mainInfo.height + "px";
@@ -62,7 +62,7 @@ boards.addEventListener("click", (e) => {
         instruct.textContent = "Player 2 turn, player 1 look away";
     }
     if(e.target.id == "button2" && p1Choice && p2Choice && selectedGamemode == "VS PLAYER") {
-        
+        finishGame(p2Choice)
     }
 
 })
@@ -164,6 +164,7 @@ function botChoose() {
         // instruct.textContent = "bot chose scissors you " + result;
         botChose = "scissors";
     }
+    finishGame(botChoose);
 }
 
 function finishGame(choice) {
