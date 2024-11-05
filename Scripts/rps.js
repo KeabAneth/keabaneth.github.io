@@ -19,11 +19,13 @@ window.addEventListener("resize", () => {
 let mainInfo = main.getBoundingClientRect();
 
 function formatStartBg() {
-    if(main.style.opacity = 0) {
+    if(main.style.opacity == 0) {
         mainInfo = main.getBoundingClientRect();
-    }
+    } else if(document.getElementById("main2").style.opacity == 0) {
+        mainInfo = main.getBoundingClientRect();
+    } else {
     mainInfo = boards.getBoundingClientRect();
-    // if (main) {
+    }// if (main) {
         // if (!p2Board) {
         startGameOverlay.style.width = mainInfo.width + "px";
         startGameOverlay.style.height = mainInfo.height + "px";
