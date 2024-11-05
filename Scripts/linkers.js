@@ -7,3 +7,15 @@ document.getElementById("linkersCont").addEventListener("click", e => {
         window.location.href = "/"
     }
 })
+
+const projDescs = document.querySelectorAll(".projDesc");
+const projects = document.querySelectorAll(".projects img");
+
+for (const proj of projects) {
+    proj.addEventListener("mouseenter", e => {
+        proj.nextElementSibling.style.display = "block";
+    })
+    proj.addEventListener("mouseleave", e => {
+        proj.nextElementSibling.style.display = "none";
+    })
+}
