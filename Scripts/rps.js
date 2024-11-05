@@ -6,6 +6,7 @@ const main = document.getElementById("main");
 let selectedGamemode = "VS BOT";
 let p2Board = main.cloneNode(true);
 let p1Choice = "";
+let p2Choice = "";
 p2Board.querySelector("#select").id = "button2";
 p2Board.id = "main2";
 
@@ -51,9 +52,15 @@ gamemode.addEventListener("click", e => {
 });
 
 boards.addEventListener("click", (e) => {
-    if(e.target.id == "select" && p1Choice) {
+    if(e.target.id == "select" && p1Choice && selectedGamemode == "VS BOT") {
         botChoose();
+        return;
     }
+    if(e.target.id == "select" && p1Choice && selectedGamemode == "VS PLAYER") {
+        document.getElementById("main2").style.opacity = "1";
+        main.style.opacity = "0";
+    }
+
 })
 
 boards.addEventListener("click", (e) => {
@@ -129,6 +136,9 @@ function startGame() {
     gamemode.style.display = "none";
     if (selectedGamemode === "VS BOT") {
         instruct.textContent = "Choose either rock paper or scissors.";
+    } else if(selectedGamemode === "VS PLAYER") {
+        document.getElementById("main2").style.opacity = "0";
+        instruct.textContent = "Player 1 turn, Player 2 look away";
     }
 }
 
