@@ -111,6 +111,7 @@ h1 {
     .day {
         flex-direction: row;
         flex-wrap: wrap;
+        width: 93.5%;
     }
     .day h1 {
         font-size: x-large;
