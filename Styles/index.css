@@ -53,3 +53,13 @@
     height: 100% !important;
     border-radius: 20px;
 }
+.projDesc {
+  text-align: center;
+  width: 100%;
+  display: block;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  /* position: relative; */
+  transform: translate(6px, -10px);
+}
