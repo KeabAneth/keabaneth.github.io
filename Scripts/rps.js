@@ -59,6 +59,7 @@ boards.addEventListener("click", (e) => {
     if(e.target.id == "select" && p1Choice && selectedGamemode == "VS PLAYER") {
         document.getElementById("main2").style.opacity = "1";
         main.style.opacity = "0";
+        instruct.textContent = "Player 2 turn, player 1 look away";
     }
 
 })
