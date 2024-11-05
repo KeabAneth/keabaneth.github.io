@@ -55,15 +55,17 @@
 }
 .projDesc {
   text-align: center;
-  width: 100%;
+  width: 98%;
   display: none;
-  background-color: white;
+  background-color: rgb(219, 218, 218);
   color: black;
   border-radius: 20px;
   /* position: relative; */
   transform: translate(7px, -11px);
-  border-top: solid grey 1px;
+  border-top: solid rgb(0, 0, 0) 1px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-decoration: none;
+  padding-left: 1%;
+  padding-right: 1%;
 }
