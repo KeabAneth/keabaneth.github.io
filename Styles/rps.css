@@ -75,7 +75,7 @@ h3 {
     border-radius: 5px;
     border-bottom: 2px solid aqua;
 }
-#select {
+#select, #button2 {
     flex-basis: 10px;
     background-color:rgb(219, 219, 219) ;
     border: none;
@@ -86,7 +86,12 @@ h3 {
     cursor: pointer;
     font-family: monospace;
     font-size: larger;
+    font-weight: bold;
 }
+#select:hover , #button2:hover {
+    background-color: rgb(168, 168, 168);
+}
+
 .canBeSelected {
     /* background-color: ; */
 }
