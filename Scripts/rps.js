@@ -21,8 +21,10 @@ let mainInfo = main.getBoundingClientRect();
 function formatStartBg() {
     if(main.style.opacity == 0) {
         mainInfo = main.getBoundingClientRect();
+        startGameOverlay.style.display = "block";
     } else if(document.getElementById("main2").style.opacity == 0) {
         mainInfo = main.getBoundingClientRect();
+        startGameOverlay.style.display = "block";
     } else {
     mainInfo = boards.getBoundingClientRect();
     }// if (main) {
@@ -63,6 +65,7 @@ boards.addEventListener("click", (e) => {
     if(e.target.id == "select" && p1Choice && selectedGamemode == "VS PLAYER") {
         document.getElementById("main2").style.opacity = "1";
         main.style.opacity = "0";
+        formatStartBg();
         instruct.textContent = "Player 2 turn, player 1 look away";
     }
     if(e.target.id == "button2" && p1Choice && p2Choice && selectedGamemode == "VS PLAYER") {
@@ -151,6 +154,7 @@ function startGame() {
         instruct.textContent = "Choose either rock paper or scissors.";
     } else if(selectedGamemode === "VS PLAYER") {
         document.getElementById("main2").style.opacity = "0";
+        formatStartBg();
         instruct.textContent = "Player 1 turn, Player 2 look away";
     }
 }
