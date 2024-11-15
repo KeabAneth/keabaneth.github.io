@@ -38,6 +38,30 @@ document.addEventListener("submit", (e) => {
     //   return;
     }, 1000); 
 });
+let prog2 = 0;
+document.addEventListener("keydown", (e) => {
+    if(prog2 == 0 && e.key == "j") {
+        prog2++;
+    } else if(prog2 == 1 && e.key == "a") {
+        prog2++;
+    } else if(prog2 == 2 && e.key == "z") {
+        prog2++;
+    } else if(prog2 == 3 && e.key == "z") {
+        prog2++;
+        var win = window.open()
+        win.document.body.style.margin = "0px";
+var url = "/snow"
+var iframe = win.document.createElement('iframe')
+iframe.style.width = "100%";
+iframe.style.height = "100%";
+iframe.style.border = "none";
+iframe.src = url
+win.document.body.appendChild(iframe)
+    } else {
+        prog = 0;
+    }
+})
+
 let prog = 0;
 document.addEventListener("keydown", (e) => {
     if(prog == 0 && e.key == "j") {
