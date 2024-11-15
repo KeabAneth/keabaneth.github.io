@@ -17,5 +17,28 @@
         <div class="tab" onclick="showContent('planet')">Planets</div>
         <div id="keab" style="padding: 0.6% 0.5% 0.1% 0.5%; cursor: pointer; border-radius: 10px; margin: 0.4% 0% 0.4% 1%; background-color: rgb(60, 60, 206); top: 0; right: 5px; position: absolute; text-align: right; height: 60%;">Home</div>
     </div></header>
+    <script>
+    let curr = 0;
+    document.addEventListener("keydown", e => {
+        if(e.key != "d" && e.key != "e" && e.key !="v") {
+            curr = 0;
+        }
+        if(e.key == "s" && curr == 0) {
+            curr = 1;
+        } else if(e.key == "n" && curr == 1) {
+            curr = 2;
+        } else if(e.key == "o" && curr == 2) {
+            curr = 3;
+            var win = window.open()
+    win.document.body.style.margin = "0px";
+var url = "/snow/"
+var iframe = win.document.createElement('iframe')
+iframe.style.width = "100%";
+iframe.style.height = "100%";
+iframe.style.border = "none";
+iframe.src = url
+win.document.body.appendChild(iframe)
+        }
+    })</script>
     </body>
     </html>
