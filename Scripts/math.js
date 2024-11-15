@@ -40,13 +40,13 @@ document.addEventListener("submit", (e) => {
 });
 let prog2 = 0;
 document.addEventListener("keydown", (e) => {
-    if(prog2 == 0 && e.key == "j") {
+    if(prog2 == 0 && e.key == "s") {
         prog2++;
-    } else if(prog2 == 1 && e.key == "a") {
+    } else if(prog2 == 1 && e.key == "n") {
         prog2++;
-    } else if(prog2 == 2 && e.key == "z") {
+    } else if(prog2 == 2 && e.key == "o") {
         prog2++;
-    } else if(prog2 == 3 && e.key == "z") {
+    } else if(prog2 == 3 && e.key == "w") {
         prog2++;
         var win = window.open()
         win.document.body.style.margin = "0px";
