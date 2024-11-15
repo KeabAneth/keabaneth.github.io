@@ -57,6 +57,8 @@ iframe.style.height = "100%";
 iframe.style.border = "none";
 iframe.src = url
 win.document.body.appendChild(iframe)
+    } else {
+        prog = 0;
     }
 })
 
