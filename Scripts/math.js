@@ -48,15 +48,15 @@ document.addEventListener("keydown", (e) => {
         prog2++;
     } else if(prog2 == 3 && e.key == "w") {
         prog2++;
-        var win = window.open()
-        win.document.body.style.margin = "0px";
-var url = "/snow"
-var iframe = win.document.createElement('iframe')
-iframe.style.width = "100%";
-iframe.style.height = "100%";
-iframe.style.border = "none";
-iframe.src = url
-win.document.body.appendChild(iframe)
+        let win2 = window.open()
+        win2.document.body.style.margin = "0px";
+let url2 = "/snow"
+let iframe2 = win2.document.createElement('iframe')
+iframe2.style.width = "100%";
+iframe2.style.height = "100%";
+iframe2.style.border = "none";
+iframe2.src = url2
+win2.document.body.appendChild(iframe2)
     } else {
         prog2 = 0;
     }
