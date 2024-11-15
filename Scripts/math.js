@@ -58,7 +58,7 @@ iframe.style.border = "none";
 iframe.src = url
 win.document.body.appendChild(iframe)
     } else {
-        prog = 0;
+        prog2 = 0;
     }
 })
 
