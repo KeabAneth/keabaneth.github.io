@@ -63,7 +63,7 @@
   color: black;
   border-radius: 10px;
   /* position: relative; */
-  transform: translate(-3px, -11px);
+  transform: translate(2px, -11px);
   border-top: solid rgb(0, 0, 0) 1px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
