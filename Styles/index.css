@@ -67,7 +67,7 @@
   border-top: solid rgb(0, 0, 0) 1px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  text-decoration: none;
+  text-decoration: none !important;
   padding-left: 1%;
   padding-right: 1%;
 }
