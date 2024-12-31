@@ -11,14 +11,12 @@
   --proj: 10vw;
 }
 .projects {
+  transition: transform 100ms;
   background-color: transparent;
   width: 10vw;
   height: 10vw;
   margin: 2%;
-  /* box-shadow: black 10px 5px 5px; */
   border-radius: 20px;
-  /* animation: shake 1000ms reverse; */
-  animation: unshake 100ms ease-in-out;
 }
 @media screen and (max-width: 600px) {
   .projects {
@@ -28,24 +26,7 @@
   }
 }
 .projects:hover {
-  animation: shake 100ms forwards;
-}
-@keyframes unshake {
-  0%{
-      transform: translateY(-10px);
-  }
-  100% {
-      transform: translateY(0px);
-  }
-  
-}
-@keyframes shake{
-  0% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(-10px);
-  }
+  transform: translateY(-10px);
 }
 .projects img {
     object-fit: cover;
