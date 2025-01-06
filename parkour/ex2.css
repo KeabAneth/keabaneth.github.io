@@ -1,0 +1,18 @@
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+body {
+    background-color: black;
+}
+canvas {
+    background-color: rgb(2, 2, 48);
+    width: 90vw;
+    aspect-ratio: 16/9;
+    
+}
+@font-face {
+    font-family: 'retro';
+    src: url("https://fonts.gstatic.com/s/sixtyfour/v1/OD5vuMCT1numDm3nakXtp2h4jg463t9haG_3mBkVsV20uFT3BAE5f43flSU.woff2");
+}
+
