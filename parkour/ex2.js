@@ -18,6 +18,13 @@ let player;
 
 let useArrows = false;
 
+function restartGame() {
+    player.y = canvas.height-50;
+    player.x = 500;
+    document.body.style.backgroundColor = "white"
+    cameraY = 0;
+}
+
 function  getMousePos(evt) {
     var rect = canvas.getBoundingClientRect(), // abs. size of element
       scaleX = canvas.width / rect.width,    // relationship bitmap vs. element for x
@@ -47,18 +54,28 @@ function openFullscreen(elem) {
     requestAnimationFrame(animateTitle)
   }
 
+  function updCamPos() {
+    if(player.y < 600) {
+        cameraY++;
+        // groundY += cameraY;
+    }
+    if(player.y > canvas.height) {
+        restartGame()
+    }
+  }
+
   function drawButtons() {
     //btn 1
 
     if(hoverClassic) {
         ctx.strokeStyle = "red"
-        ctx.fillStyle = "red"
+        ctx.fillStyle = "purple"
     } else {
         ctx.strokeStyle = "pink";
-        ctx.fillStyle = "pink"
+        ctx.fillStyle = "red"
     }
-    ctx.roundRect(840, 850, 220, 90, 20)
-    ctx.stroke()
+    // ctx.roundRect(840, 850, 220, 90, 20)
+    // ctx.stroke()
 
     // ctx.fillStyle = "white";
     ctx.font = "70px retro"
@@ -180,6 +197,7 @@ const jumpHeight = 50;
 
 
 function checkHitbox() {
+    updCamPos()
     for (const block of blocks) {
         // Calculate half-widths and half-heights
         const playerHalfWidth = player.width / 2;
@@ -191,7 +209,7 @@ function checkHitbox() {
         const playerCenterX = player.x + playerHalfWidth;
         const playerCenterY = player.y + playerHalfHeight;
         const blockCenterX = block.x + blockHalfWidth;
-        const blockCenterY = block.y + blockHalfHeight;
+        const blockCenterY = block.y +cameraY + blockHalfHeight;
 
         // Calculate the difference between centers
         const deltaX = playerCenterX - blockCenterX;
@@ -200,6 +218,10 @@ function checkHitbox() {
         // Calculate the minimum overlap (penetration depth)
         const overlapX = Math.abs(deltaX) - (playerHalfWidth + blockHalfWidth);
         const overlapY = Math.abs(deltaY) - (playerHalfHeight + blockHalfHeight);
+        
+        if(player.vy != 0) {
+            player.grounded = false;
+        }
 
         if (overlapX < 0 && overlapY < 0) { // Collision detected
             if (Math.abs(overlapX) < Math.abs(overlapY)) { // Resolve horizontal collision
@@ -210,14 +232,23 @@ function checkHitbox() {
                 }
                 player.vx = 0; // Stop horizontal movement
             } else { // Resolve vertical collision
-                if (deltaY > 0) { // Player is above the block
+                if (deltaY > 0) { // Player is below the block
                     player.y -= overlapY;
                     player.vy = 0;
                     
-                } else { // Player is below the block
+                } else{ // Player is above the block
+                    // if(block.type == 1) {//bounce 
+                    //     player.applyForce(0, -10000);
+                    // } 
+                    if(block.type == 2) {
+                        document.body.style.backgroundColor = "white"
+                    }
+                    player.grounded = true;
                     player.y += overlapY;
                     player.vy = 0;
-                    player.grounded = true;
+                    
+                    
+
                 }
             }
         }
@@ -228,10 +259,10 @@ function jump(key) {
     if (player.grounded) { 
       jumpKeyed = key;
       player.jumpPressedTime = 1;  //weird way to make no jump glitch
-      player.grounded = false  
     //   player.y += 2; 
       player.vy = -Math.sqrt(2 * Math.abs(gravity) * jumpHeight); 
  // Correct the player's position 
+ player.grounded = false; 
     }
     if(player.vy < 0 && player.jumpPressedTime < 7 && jumpKeyed == key) {
         player.vy -= player.jumpPressedTime * player.jumpPressedTime * 1.5
@@ -247,7 +278,9 @@ function goRight() {
 }
 
 function crouch() {
-    
+    if(!player.grounded) {
+        player.applyForce(0, 10000)
+    }
 }
 
 // function updateController() {
@@ -296,10 +329,19 @@ const controller = {
 
 const blocks = []
 
+const text = []
+
 function createBlocks() {
-    new Block(540, 950, 50, 20, 0)
-    new Block(580, 900, 50, 20, 0)
-    new Block(650, 820, 50, 20, 0)
+    new Block(540, 950, 50, 20, 0);
+    new Block(580, 900, 50, 20, 0);
+    new Block(650, 850, 50, 20, 0);
+    new Block(600, 800, 50, 20, 0);
+    new Block(500, 750, 100, 20, 0);
+    new Block(800, 700, 50, 20, 0);
+    new Block(850, 610, 50, 20, 0);
+    new Block(700, 600, 50, 20, 0);
+    new Block(600, 520, 50, 20, 0);
+    new Block(720, 450, 50, 20, 0);
 }
 
 document.addEventListener("keydown", e => {
@@ -314,8 +356,65 @@ document.addEventListener("keyup", e => {
     }
 })
 
+function makeText() {
+    new Text("Welcome.", 200, 500, 800, 1000)
+}
+
+class Text {
+    constructor(content,x,y,maxWidth,minY, maxY) {
+        this.content = content;
+        this.x = x;
+        this.y = y;
+        this.maxWidth = maxWidth;
+        this.maxY = maxY;
+        this.minY = minY;
+        text.push(this)
+    }
+    draw(ctx) {
+        ctx.font = "48px serif";
+        ctx.fillStyle = "white";
+        ctx.fillText(this.content, this.x, this.y, this.maxWidth);
+    }
+}
+
+class moveBlock {
+    constructor(x, y, width, height, speed, range, direction) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+        this.speed = speed;
+        this.range = range;
+        this.color = "yellow";
+        this.reverse = false;
+        this.direction = direction;
+        this.ogX = this.x;
+        this.ogY = this.y;
+        blocks.push(this);
+    }
+    draw(ctx) {
+            if(!this.reverse) {
+                this[this.direction]+= this.speed;
+                if(this[this.direction] > this[`og${this.direction.toUpperCase()}`] + this.range) {
+                    this.reverse = true
+                }
+            } else {
+                this[this.direction] -= 2;
+                if(this[this.direction] <= this[`og${this.direction.toUpperCase()}`]) {
+                    this.reverse = false;
+                }
+            }
+        
+
+        ctx.beginPath();
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.closePath();
+    }
+}
+
 class Block {
-    constructor(x, y, width, height, type) {
+    constructor(x, y, width, height, type, bounceHeight) { //type 0 is classic, 1 is bounce,2 is checkpoint
         this.x = x;
         this.y = y;
         this.width = width;
@@ -324,18 +423,18 @@ class Block {
         if(this.type == 0) {
             this.color = "black"
         } else if(this.type == 1) {
-            this.color = "yellow"
+            this.bounceHeight = bounceHeight;
+            this.color = "purple";
+        } else if(this.type == 2) {
+            this.color = "grey";
         }
         blocks.push(this)
     }
     draw(ctx) {
-        if(this.type == 1) {
-            
-        }
 
         ctx.beginPath();
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
+        ctx.fillRect(this.x, this.y + cameraY, this.width, this.height);
         ctx.closePath();
     }
 }
@@ -447,16 +546,22 @@ function animate(time) {
 
     // checkHitbox();
 
-    if(player.y + player.height > groundY) {
+    if(player.y + player.height > groundY+cameraY) {
         player.grounded = true;
-        player.y = groundY - player.height;
+        player.y = groundY + cameraY - player.height;
         player.vy = 0;
     }
     
     ctx.fillStyle = "black";
-    ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+    ctx.fillRect(0, groundY + cameraY, canvas.width, canvas.height - groundY);
 
     player.draw(ctx);
+    for (const texts of text) {
+        if(player.y > texts.maxY && player.y < texts.minY) {
+            texts.draw(ctx)
+        }
+    }
+
     for(const block of blocks) {
         block.draw(ctx)
     }
