@@ -16,3 +16,6 @@ canvas {
     src: url("https://fonts.gstatic.com/s/sixtyfour/v1/OD5vuMCT1numDm3nakXtp2h4jg463t9haG_3mBkVsV20uFT3BAE5f43flSU.woff2");
 }
 
+#indicator {
+    color: white;
+}

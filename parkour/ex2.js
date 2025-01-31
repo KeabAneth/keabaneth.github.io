@@ -6,9 +6,22 @@ document.body.appendChild(canvas);
 let play = false;
 let titleScale = 0.01;
 let fontLoaded = false;
+const indicator = document.getElementById("indicator");
+let showSettings = false;
 
 const titleImage = new Image();
 titleImage.src = "title.png";
+
+const settingImg = new Image() 
+settingImg.src = "settings.png";
+
+const unmutedImg = new Image();
+unmutedImg.src = "unmuted.png";
+
+const mutedImg = new Image();
+mutedImg.src = "muted.png";
+
+let muted = false;
 
 let cameraY = 0;
 
@@ -17,6 +30,79 @@ let mouseY;
 let player;
 
 let useArrows = false;
+
+function drawSettings() {
+    ctx.fillStyle = "white";
+    ctx.fillRect(130, 30, 1620, 880);
+    ctx.fillStyle = "black"
+    // ctx.fillRect(140, 50, 900, 30)
+    ctx.font = "100px retro"
+    ctx.fillText("Settings", 140, 120, 1500)
+    drawChangeControl() //change from arrows to wasd and vice versa
+    drawSoundSetting();
+
+
+}
+
+function drawSoundSetting() {
+    let chosenImg
+
+    if(muted) {
+        chosenImg = mutedImg;
+    } else {
+        chosenImg = unmutedImg;
+    }
+
+    ctx.drawImage(chosenImg, 50, 500, 200, 200);
+}
+
+function unfoldChangeControl() {
+    // document.querySelector("body").backgroundColor = "white"
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(900, 200, 400, 100);
+
+    ctx.font = "70px serif";
+    ctx.fillStyle = "black";
+
+    ctx.fillText(textToUse, 900, 250)
+    
+}
+
+function drawChangeControl(click) {
+    // if(mx) {
+    //     document.querySelector("body").backgroundColor = "white"
+    // }
+
+    let textToUse;
+    if(useArrows) {
+        textToUse = "arrow"
+    } else {
+        textToUse = "wasd"
+    }
+
+    ctx.fillStyle = "blue";
+    ctx.font = "75px serif"
+    ctx.fillText("Controls", 400, 272)
+
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(900, 200, 400, 100);
+    ctx.font = "70px serif";
+    
+    ctx.fillStyle = "black";
+
+        ctx.fillText(textToUse, 900, 250)
+    
+
+
+    ctx.fillStyle = "black";
+    ctx.font = "48px serif";
+    // ctx.fillText(200)
+
+}
+
+function drawUI() {
+    ctx.drawImage(settingImg, 1810, 10, 100, 100);
+}
 
 function restartGame() {
     player.y = canvas.height-50;
@@ -135,9 +221,16 @@ let hoverClassic = false;
   }
 
   canvas.addEventListener("click", () => {
+    // drawChangeControl(true);
+    if(mouseX > 900 && mouseY > 300) {
+        // unfoldChangeControl();
+        document.querySelector("body").backgroundColor = "white"
+    }
     if(mouseX > 840 && mouseX < 1060 && mouseY > 850 && mouseY < 940) {
-        transition("play")
-        
+        transition("play")    
+    }
+    if(mouseX > 1810 && mouseY < 510) {
+        showSettings = !showSettings;
     }
   })
 
@@ -240,9 +333,6 @@ function checkHitbox() {
                     // if(block.type == 1) {//bounce 
                     //     player.applyForce(0, -10000);
                     // } 
-                    if(block.type == 2) {
-                        document.body.style.backgroundColor = "white"
-                    }
                     player.grounded = true;
                     player.y += overlapY;
                     player.vy = 0;
@@ -327,6 +417,17 @@ const controller = {
     }
 }
 
+
+function setCheckPoint(block) {
+    if(block.type == 2) {
+        ctx.fillStyle = "white";
+        ctx.font = "48px serif"
+        // ctx.fillText("Checkpoint Saved", block.x, block.y)
+        document.querySelector("body").backgroundColor = "white"
+    }
+}
+
+
 const blocks = []
 
 const text = []
@@ -341,7 +442,7 @@ function createBlocks() {
     new Block(850, 610, 50, 20, 0);
     new Block(700, 600, 50, 20, 0);
     new Block(600, 520, 50, 20, 0);
-    new Block(720, 450, 50, 20, 0);
+    new Block(720, 450, 50, 20, 2);
 }
 
 document.addEventListener("keydown", e => {
@@ -469,7 +570,7 @@ class Player {
 
         checkHitbox()
 
-        const friction = 0.95; // A value between 0 and 1 (higher means less friction)
+        const friction = 0.93; // A value between 0 and 1 (higher means less friction)
         this.vx *= friction;
         if(this.vx < 0.001 && this.vx > -0.001) {
             this.vx = 0;
@@ -534,6 +635,7 @@ function executeKeys() {
 }
 
 function animate(time) {
+    indicator.textContent = mouseX + "," + mouseY
     if(!lastTime) lastTime = time;
     const deltaTime = (time - lastTime) / 1000;
     lastTime = time;
@@ -565,6 +667,12 @@ function animate(time) {
     for(const block of blocks) {
         block.draw(ctx)
     }
+
+    drawUI();
+    if(showSettings) {
+        drawSettings();
+    }
+    
 
     requestAnimationFrame(animate);
 }
