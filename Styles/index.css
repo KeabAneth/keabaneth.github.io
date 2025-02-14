@@ -39,15 +39,15 @@
   text-align: center;
   width: 98%;
   display: none;
-  background-color: rgb(219, 218, 218);
-  color: black;
+  background-color: purple;
+  color: rgb(255, 255, 255);
   border-radius: 10px;
   /* position: relative; */
   transform: translate(2px, -11px);
   border-top: solid rgb(0, 0, 0) 1px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-  text-decoration: none !important;
+  text-decoration: none;
   padding-left: 1%;
   padding-right: 1%;
 }
