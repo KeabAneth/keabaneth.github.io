@@ -24,6 +24,9 @@
     height: 15vw;
     border-radius: 20px;
   }
+  .projDesc {
+    display: none !important;
+  }
 }
 .projects:hover {
   transform: translateY(-10px);
