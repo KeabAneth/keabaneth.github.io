@@ -22,7 +22,7 @@
   .projects {
     width: 15vw;
     height: 15vw;
-    border-radius: 20px;
+    border-radius: 20px !important;
   }
   .projDesc {
     display: none !important;
