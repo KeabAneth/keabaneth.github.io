@@ -9,6 +9,8 @@ let fontLoaded = false;
 const indicator = document.getElementById("indicator");
 let showSettings = false;
 
+const jumpSound = new Audio(/audio/jump_07.wav);
+
 const titleImage = new Image();
 titleImage.src = "title.png";
 
@@ -349,6 +351,7 @@ function jump(key) {
     if (player.grounded) { 
       jumpKeyed = key;
       player.jumpPressedTime = 1;  //weird way to make no jump glitch
+      jumpSound.play()
     //   player.y += 2; 
       player.vy = -Math.sqrt(2 * Math.abs(gravity) * jumpHeight); 
  // Correct the player's position 
