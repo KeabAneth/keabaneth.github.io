@@ -9,7 +9,7 @@ let fontLoaded = false;
 const indicator = document.getElementById("indicator");
 let showSettings = false;
 
-const jumpSound = new Audio(/audio/jump_07.wav);
+const jumpSound = new Audio("/audio/jump_07.wav");
 
 const titleImage = new Image();
 titleImage.src = "title.png";
