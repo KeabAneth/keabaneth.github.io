@@ -1,0 +1,49 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+.funnel-sans-epik {
+    font-family: "Funnel Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.titley {
+    color: white;
+    text-shadow: 0 0 40px rgb(206, 206, 206);
+    margin: auto;
+    font-size: 500%;
+    width: 60%;
+    padding-top: 10%;
+    text-align: center;
+}
+.counter {
+    color: white;
+    text-shadow: 0 0 40px rgb(206, 206, 206);
+    margin: auto;
+    width: 10%;
+    text-align: center;
+    font-size: 600%;
+    transition: all .5s;
+}
+.counterClick {
+    transform: translateY(-50);
+    transform: scale(1.5);
+}
+.countAnim {
+    animation-name: countAnim;
+    animation-duration: 500ms;
+}
+@keyframes countAnim {
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
