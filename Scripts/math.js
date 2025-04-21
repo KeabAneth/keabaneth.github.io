@@ -7,7 +7,6 @@ const bestEl = document.getElementById("best");
 const shakeElement = document.querySelector(".squ");
 const tabs = document.getElementById("tabs");
 let currNumb;
-genNumb()
 
 document.addEventListener("submit", (e) => {
     if(!waiting) {
@@ -83,6 +82,7 @@ function setScores(setter) {
 }
 
 genNumb();
+info.textContent += "²"
 
 info.textContent = currNumb.toString()
 
