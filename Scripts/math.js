@@ -82,7 +82,6 @@ function setScores(setter) {
 }
 
 genNumb();
-info.textContent += "²"
 
 document.addEventListener("submit", (e)=> {
     e.preventDefault();
