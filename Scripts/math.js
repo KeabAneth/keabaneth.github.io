@@ -64,7 +64,7 @@ currNumb = Math.round(Math.random() * (30 - 1) + 1)
 
 function genNumb() {
     currNumb = Math.round(Math.random() * (30 - 1) + 1);
-    info.textContent = currNumb + "²";
+    info.textContent = `${currNumb}²`
     guess.value = "";
 }
 
