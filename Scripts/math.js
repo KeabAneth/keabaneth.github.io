@@ -6,7 +6,7 @@ const scoreEl = document.getElementById("score");
 const bestEl = document.getElementById("best");
 const shakeElement = document.querySelector(".squ");
 const tabs = document.getElementById("tabs");
-
+let currNumb;
 genNumb()
 
 document.addEventListener("submit", (e) => {
@@ -60,7 +60,7 @@ let best = localStorage.getItem("best") || 0;
 
 bestEl.textContent = best;
 
-let currNumb = Math.round(Math.random() * (30 - 1) + 1)
+currNumb = Math.round(Math.random() * (30 - 1) + 1)
 
 function genNumb() {
     currNumb = Math.round(Math.random() * (30 - 1) + 1);
