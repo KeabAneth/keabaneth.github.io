@@ -84,8 +84,6 @@ function setScores(setter) {
 genNumb();
 info.textContent += "²"
 
-info.textContent = currNumb.toString()
-
 document.addEventListener("submit", (e)=> {
     e.preventDefault();
     if(waiting === true) {
