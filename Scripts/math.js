@@ -7,16 +7,7 @@ const bestEl = document.getElementById("best");
 const shakeElement = document.querySelector(".squ");
 const tabs = document.getElementById("tabs");
 
-
-function format() {
-    // const selTabs = document.querySelectorAll(".tabs")
-    // selTabs.style.right = scoreEl.getBoundingClientRect().right + "px"
-
-}
-
-format();
-
-document.addEventListener("resize", format);
+genNumb()
 
 document.addEventListener("submit", (e) => {
     if(!waiting) {

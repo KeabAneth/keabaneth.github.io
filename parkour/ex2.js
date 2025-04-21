@@ -10,6 +10,7 @@ const indicator = document.getElementById("indicator");
 let showSettings = false;
 
 const jumpSound = new Audio("/audio/jump_07.wav");
+const startSound = new Audio("/audio/start.mp3")
 
 const titleImage = new Image();
 titleImage.src = "title.png";
